@@ -10,6 +10,7 @@ const DESK_COLORS = {
   surfacePattern: '#000000',    // Color for the table pattern overlay
   legs: '#b88358',
   keyboard: '#e5e5e5',
+  mouse: '#333333',             // Sleek dark mouse color
   rugOuter: '#aa0022',
   rugInnerBase: '#ff0033',      // Solid base color for the inner rug
   rugPatternColor: '#111111'    // Color for the rug pattern overlay
@@ -42,7 +43,7 @@ export default function Desk() {
         <RoundedBox args={[3.0, 0.05, 1.2]} radius={0.02} smoothness={4} position={[0, 0, 0]} receiveShadow castShadow>
           <meshStandardMaterial color={DESK_COLORS.surfaceBase} roughness={0.2} />
         </RoundedBox>
-        {/* Layer 2: Transparent Pattern Overlay (Nudged up slightly on Y to prevent z-fighting) */}
+        {/* Layer 2: Transparent Pattern Overlay */}
         <RoundedBox args={[3.0, 0.05, 1.2]} radius={0.02} smoothness={4} position={[0, 0.026, 0]} receiveShadow>
           <meshStandardMaterial 
             map={tableTexture} 
@@ -72,13 +73,22 @@ export default function Desk() {
         <meshStandardMaterial color={DESK_COLORS.legs} roughness={0.8} />
       </mesh>
 
-      {/* Keyboard */}
-      <RoundedBox args={[1, 0.025, 0.28]} radius={0.01} smoothness={2} position={[-0.06, 0.32, 0.38]}>
-        <meshStandardMaterial color={DESK_COLORS.keyboard} roughness={0.4} />
-      </RoundedBox>
+      {/* Keyboard - Centered and slightly tilted for natural alignment */}
+      <group position={[-0.1, 0.32, 0.37]} rotation={[0, 0.08, 0]}>
+        <RoundedBox args={[0.95, 0.025, 0.28]} radius={0.01} smoothness={2} castShadow>
+          <meshStandardMaterial color={DESK_COLORS.keyboard} roughness={0.4} />
+        </RoundedBox>
+      </group>
+
+      {/* Mouse - Placed right next to the keyboard */}
+      <group position={[0.62, 0.32, 0.36]}>
+        <RoundedBox args={[0.09, 0.018, 0.14]} radius={0.01} smoothness={2} castShadow>
+          <meshStandardMaterial color={DESK_COLORS.mouse} roughness={0.3} />
+        </RoundedBox>
+      </group>
 
       {/* --- LAYERED FLOOR RUG (Double Layered Inner Section) --- */}
-      <group position={[0, -0.45, 0]}>
+      <group position={[0, -0.45, 0.2]}>
         {/* Outer Border Rug */}
         <RoundedBox args={[3.4, 0.02, 2.6]} radius={0.01} smoothness={4} receiveShadow>
           <meshLambertMaterial color={DESK_COLORS.rugOuter} />
@@ -89,7 +99,7 @@ export default function Desk() {
           <meshLambertMaterial color={DESK_COLORS.rugInnerBase} />
         </RoundedBox>
 
-        {/* Inner Rug Layer 2: Transparent Pattern Overlay (Nudged up slightly on Y) */}
+        {/* Inner Rug Layer 2: Transparent Pattern Overlay */}
         <RoundedBox args={[2.9, 0.02, 2.1]} radius={0.01} smoothness={4} position={[0, 0.021, 0]} receiveShadow>
           <meshStandardMaterial 
             map={rugTexture} 

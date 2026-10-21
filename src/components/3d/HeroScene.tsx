@@ -4,6 +4,7 @@ import Desk from './Desk'
 import Monitors from './Monitors'
 import Character from './Character'
 
+
 export default function HeroScene() {
   return (
     <Canvas
@@ -11,6 +12,7 @@ export default function HeroScene() {
       // The Sweet Spot: Y is set to 3.2, balancing the top-down and straight-on perspectives
       camera={{ position: [6.5, 3.2, 6.0], fov: 28 }}
       style={{ width: '100%', height: '100%' }}
+      
     >
       <ambientLight intensity={0.85} color="#fff8ee" />
       <directionalLight
@@ -37,6 +39,7 @@ export default function HeroScene() {
         minAzimuthAngle={-Math.PI / 6}
         maxAzimuthAngle={Math.PI / 3}
       />
+      {/* <BackgroundOrbs /> */}
     </Canvas>
   )
 }
