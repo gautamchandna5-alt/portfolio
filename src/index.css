@@ -1,0 +1,12 @@
+@import "tailwindcss";
+
+@theme {
+  --color-portfolio-bg: #f8f5f0;
+  --color-portfolio-nav: #ece7de;
+  --color-portfolio-badge: #273b69;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-portfolio-bg);
+}
