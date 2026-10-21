@@ -13,7 +13,7 @@ export default function HeroSection() {
   >
     <ambientLight intensity={1.2} />
     <directionalLight position={[5, 5, 5]} intensity={2.5} />
-    <BackgroundOrbs />
+    {/* <BackgroundOrbs /> */}
   </Canvas>
 </div>
 
