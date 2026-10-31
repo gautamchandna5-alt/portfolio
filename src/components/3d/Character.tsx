@@ -90,15 +90,15 @@ function AnimatedAvatar({ isStandingRef }: { isStandingRef: React.MutableRefObje
       const sitQuatTrack = sitClip?.tracks.find((t: THREE.KeyframeTrack) => t.name.endsWith('hipsBone.quaternion'))
 
       if (sitPosTrack && sitQuatTrack) {
-        const sitX = sitPosTrack.values[0]
-        const sitY = sitPosTrack.values[1]
-        const sitZ = sitPosTrack.values[2]
-        const sitQuat = new THREE.Quaternion(
-          sitQuatTrack.values[0],
-          sitQuatTrack.values[1],
-          sitQuatTrack.values[2],
-          sitQuatTrack.values[3]
-        )
+        // const sitX = sitPosTrack.values[0]
+        // const sitY = sitPosTrack.values[1]
+        // const sitZ = sitPosTrack.values[2]
+        // const sitQuat = new THREE.Quaternion(
+        //   sitQuatTrack.values[0],
+        //   sitQuatTrack.values[1],
+        //   sitQuatTrack.values[2],
+        //   sitQuatTrack.values[3]
+        // )
 
         ;['idle', 'wave', 'contact-idle', 't-idle'].forEach((clipName) => {
           const clip = animations.find((a: THREE.AnimationClip) => a.name === clipName)
