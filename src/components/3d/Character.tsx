@@ -3,7 +3,7 @@ import { useGLTF, useAnimations } from '@react-three/drei'
 import { useFrame, useThree } from '@react-three/fiber'
 import * as THREE from 'three'
 
-import characterModel from '../../assets/hehhhhhh.glb'
+
 
 // ============================================================================
 // 1. CHOOSE WHICH PRELOADED STANDING ANIMATION FROM hehhhhhh.glb TO PLAY:
@@ -55,7 +55,7 @@ function AnimatedAvatar({ isStandingRef }: { isStandingRef: React.MutableRefObje
   const currentAnimRef = useRef<'sitting' | 'standing'>('sitting')
   const normalizedRef = useRef(false)
 
-  const { scene, animations } = useGLTF(characterModel)
+  const { scene, animations } = useGLTF('/hehhhhhh.glb')
   const { actions } = useAnimations(animations, group)
 
   useEffect(() => {
@@ -227,4 +227,4 @@ export default function Character() {
   )
 }
 
-useGLTF.preload(characterModel)
+useGLTF.preload('/hehhhhhh.glb')
