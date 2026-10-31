@@ -11,8 +11,8 @@ const DESK_COLORS = {
   legs: '#b88358',
   keyboard: '#e5e5e5',
   mouse: '#333333',             // Sleek dark mouse color
-  rugOuter: '#0a0a0a',
-  rugInnerBase: '#450112',      // Solid base color for the inner rug
+  rugOuter: '#b9fbc0',
+  rugInnerBase: '#1a220f',      // Solid base color for the inner rug
   rugPatternColor: '#111111'    // Color for the rug pattern overlay
 }
 
